@@ -87,7 +87,7 @@ We invite activists, degens, memelords, and idealists to unite for a cause thatâ
 **Socials** (Coming soon)
 
 * Telegram: t.me/viktokenarmy
-* X (formerly Twitter): twitter.com/viktoken
+* X (formerly Twitter): https://x.com/VIKTOKENARMY
 * TikTok: tiktok.com/@viktoken
 
 ---
