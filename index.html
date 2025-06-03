@@ -541,36 +541,37 @@
 
 <script>
   const donationAddress = "0xa7b271e5F175da3456A25a117e83244C3D1319a1";
-  const tokenContract = "0x1603CEB4CB7F3F8f63b70F0DFe9B292769424e12";
-  const apiKey = "NYPGFAKBF6DUYPP8WPPJYZEBFZ7NHMYG73"; // Cseréld le a saját BscScan API kulcsodra!
+const tokenContract = "0x1603CEB4CB7F3F8f63b70F0DFe9B292769424e12";
+const apiKey = "NYPGFAKBF6DUYPP8WPPJYZEBFZ7NHMYG73";
 
-  async function fetchDonatedAmount() {
-    const url = `https://api.bscscan.com/api?module=account&action=tokentx&contractaddress=${tokenContract}&address=${donationAddress}&page=1&offset=100&sort=asc&apikey=${apiKey}`;
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
+async function fetchDonatedAmount() {
+  const url = `https://api.bscscan.com/api?module=account&action=tokentx&contractaddress=${tokenContract}&address=${donationAddress}&page=1&offset=100&sort=asc&apikey=${apiKey}`;
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
 
-      if (data.status === "1" && data.result.length > 0) {
-        let total = 0;
-        data.result.forEach(tx => {
-          if (tx.to.toLowerCase() === donationAddress.toLowerCase()) {
-            total += Number(tx.value);
-          }
-        });
-        const decimals = 18;
-        const donated = total / Math.pow(10, decimals);
-        document.getElementById('donationAmount').textContent = donated.toLocaleString(undefined, {maximumFractionDigits: 2}) + ' $VIKT';
-      } else {
-        document.getElementById('donationAmount').textContent = "0 $VIKT";
-      }
-    } catch (error) {
-      console.error("Error fetching donation amount:", error);
-      document.getElementById('donationAmount').textContent = "Error";
+    if (data.status === "1" && data.result.length > 0) {
+      let total = BigInt(0);
+      data.result.forEach(tx => {
+        if (tx.to.toLowerCase() === donationAddress.toLowerCase()) {
+          total += BigInt(tx.value);
+        }
+      });
+      const decimals = 18n;
+      const donated = Number(total) / Number(BigInt(10) ** decimals);
+      document.getElementById('donationAmount').textContent = donated.toLocaleString(undefined, {maximumFractionDigits: 2}) + ' $VIKT';
+    } else {
+      document.getElementById('donationAmount').textContent = "0 $VIKT";
     }
+  } catch (error) {
+    console.error("Error fetching donation amount:", error);
+    document.getElementById('donationAmount').textContent = "Error";
   }
+}
 
-  setInterval(fetchDonatedAmount, 30000); // 30 mp-ként frissít
-  window.addEventListener('load', fetchDonatedAmount);
+setInterval(fetchDonatedAmount, 30000); // 30 mp-ként frissít
+window.addEventListener('load', fetchDonatedAmount);
+
 </script>
 
 <!-- Coinsniper widget container -->
