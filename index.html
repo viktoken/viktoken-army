@@ -374,6 +374,34 @@
     </div>
   </section>
 
+  <section class="charity-section" style="max-width:600px; margin: 3rem auto; background: var(--card); padding: 2rem; border-radius: 15px; border:1px solid #333; color: var(--fg); text-align:center;">
+
+  <h2 style="color: var(--accent); margin-bottom: 1rem;">Charity Wallet</h2>
+  
+  <p style="font-size: 1.2rem; margin-bottom: 1rem;">
+    We transparently support children’s hospitals and charitable causes worldwide.
+  </p>
+  
+  <p style="word-break: break-all; font-weight: bold; font-size: 1rem; margin-bottom: 0.5rem;">
+    Wallet Address:
+  </p>
+  <p style="font-family: monospace; font-size: 0.9rem; margin-bottom: 1rem;">
+    <a href="https://bscscan.com/address/0xa7b271e5F175da3456A25a117e83244C3D1319a1" target="_blank" rel="noopener noreferrer" style="color: var(--pink);">
+      TheWallet
+    </a>
+  </p>
+  
+  <div style="margin: 1.5rem 0;">
+    <span style="font-weight: bold; font-size: 1.1rem;">Donated so far:</span><br />
+    <span id="donationAmount" style="font-size: 2rem; color: var(--green); font-weight: 900;">0 $VIKT</span>
+  </div>
+  
+  <p style="font-size: 0.9rem; color: #aaa;">
+    (Updated regularly for full transparency)
+  </p>
+
+</section>
+
   <section class="chart-container">
     <h2>Live Price Chart</h2>
     <p>Track $VIKT performance in real-time</p>
@@ -510,6 +538,40 @@
   </script>
   <!-- Coinsniper widget script -->
 <script src="https://coinsniper.net/widget.min.js"></script>
+
+<script>
+  const donationAddress = "0xa7b271e5F175da3456A25a117e83244C3D1319a1";
+  const tokenContract = "0x1603CEB4CB7F3F8f63b70F0DFe9B292769424e12";
+  const apiKey = "NYPGFAKBF6DUYPP8WPPJYZEBFZ7NHMYG73"; // Cseréld le a saját BscScan API kulcsodra!
+
+  async function fetchDonatedAmount() {
+    const url = `https://api.bscscan.com/api?module=account&action=tokentx&contractaddress=${tokenContract}&address=${donationAddress}&page=1&offset=100&sort=asc&apikey=${apiKey}`;
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+
+      if (data.status === "1" && data.result.length > 0) {
+        let total = 0;
+        data.result.forEach(tx => {
+          if (tx.to.toLowerCase() === donationAddress.toLowerCase()) {
+            total += Number(tx.value);
+          }
+        });
+        const decimals = 18;
+        const donated = total / Math.pow(10, decimals);
+        document.getElementById('donationAmount').textContent = donated.toLocaleString(undefined, {maximumFractionDigits: 2}) + ' $VIKT';
+      } else {
+        document.getElementById('donationAmount').textContent = "0 $VIKT";
+      }
+    } catch (error) {
+      console.error("Error fetching donation amount:", error);
+      document.getElementById('donationAmount').textContent = "Error";
+    }
+  }
+
+  setInterval(fetchDonatedAmount, 30000); // 30 mp-ként frissít
+  window.addEventListener('load', fetchDonatedAmount);
+</script>
 
 <!-- Coinsniper widget container -->
 <div id="cs-widget" data-id="82378" data-name="VIKTOKEN"></div>
