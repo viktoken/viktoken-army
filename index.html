@@ -3,98 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VIKTOKEN | Meme With Meaning</title>
+  <title>VIKTOKEN | Meme → Miracle</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background: #0e0e0e;
-      color: #f5f5f5;
-      text-align: center;
+    :root {
+      --pink:#ff4081;
+      --bg:#0e0e0e;
+      --fg:#f5f5f5;
+      --card:#1a1a1a;
+      --accent:#ffc107;
     }
-    header {
-      padding: 2rem 1rem;
-      background: #1a1a1a;
-      border-bottom: 2px solid #444;
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Orbitron',sans-serif;
+      background:var(--bg);
+      color:var(--fg);
+      line-height:1.6;
+      text-align:center;
     }
-    h1 {
-      font-size: 3rem;
-      color: #ff4081;
+    header{
+      background:url("images/hero-viktoken.png") center/cover no-repeat;
+      min-height:60vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      padding:2rem 1rem;
+      border-bottom:2px solid #444;
     }
-    p {
-      max-width: 700px;
-      margin: 1rem auto;
-      line-height: 1.6;
-      font-size: 1.1rem;
+    header h1{font-size:3rem;color:var(--pink);text-shadow:0 0 10px #000}
+    header p{max-width:720px;margin:1rem auto;font-size:1.1rem}
+    .cta{margin:1.5rem auto;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+    .btn{
+      background:var(--pink);
+      color:#fff;
+      padding:.8rem 2rem;
+      border-radius:6px;
+      text-decoration:none;
+      transition:.3s;
+      display:inline-block;
     }
-    .cta {
-      margin: 2rem auto;
-    }
-    .cta a {
-      background: #ff4081;
-      color: white;
-      text-decoration: none;
-      padding: 0.75rem 2rem;
-      border-radius: 6px;
-      font-size: 1.2rem;
-      transition: background 0.3s;
-    }
-    .cta a:hover {
-      background: #e73370;
-    }
-    .chart-container {
-      margin: 3rem auto;
-      max-width: 900px;
-      padding: 0 1rem;
-    }
-    iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-      border-radius: 8px;
-    }
-    footer {
-      margin-top: 4rem;
-      font-size: 0.9rem;
-      color: #888;
-      padding-bottom: 2rem;
-    }
+    .btn:hover{background:#e73370}
+    section{padding:3rem 1rem;max-width:900px;margin:auto}
+    .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem;margin-top:2rem}
+    .card{background:var(--card);padding:1.5rem;border:1px solid #333;border-radius:10px}
+    .card img{width:60px;margin-bottom:1rem}
+    .chart-container{margin:3rem auto;max-width:900px}
+    iframe{width:100%;height:500px;border:none;border-radius:8px}
+    footer{margin-top:4rem;font-size:.9rem;color:#888;padding:2rem 0;border-top:1px solid #333}
+    @media(max-width:600px){header h1{font-size:2.2rem}}
   </style>
 </head>
 <body>
   <header>
     <h1>VIKTOKEN</h1>
-    <p>Turning memes into missions. A satirical token with a heart — made for change.</p>
+    <p>Turning political satire into real-world impact – buy $VIKT, fund kids, enjoy the memes.</p>
+    <div class="cta">
+      <a class="btn" href="whitepaper.md" target="_blank">📄 Whitepaper</a>
+      <a class="btn" href="https://t.me/viktokenarmy" target="_blank">🚀 Join Telegram</a>
+      <a class="btn" href="https://pancakeswap.finance/swap?outputCurrency=0x1603CEB4CB7F3F8f63b70F0DFe9B292769424e12" target="_blank">💰 Buy $VIKT</a>
+    </div>
   </header>
 
-  <div class="cta">
-    <a href="whitepaper.md" target="_blank">📄 Read the Whitepaper</a>
-  </div>
+  <section>
+    <h2>Why VIKTOKEN?</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="images/icon-meme.png" alt="Meme icon">
+        <h3>Meme Power</h3>
+        <p>We weaponise humour against corruption – every coin carries Viktor’s smirk.</p>
+      </div>
+      <div class="card">
+        <img src="images/icon-heart.png" alt="Heart icon">
+        <h3>Charity First</h3>
+        <p>Portion of liquidity directed to children’s hospitals worldwide. 100% on‑chain transparency.</p>
+      </div>
+      <div class="card">
+        <img src="images/icon-lock.png" alt="Lock icon">
+        <h3>Locked & Rug‑Free</h3>
+        <p>Liquidity and team wallet both locked – no nasty surprises.</p>
+      </div>
+    </div>
+  </section>
 
-  <p>
-    VIKTOKEN is a meme coin with a message. We fight political nonsense with humor — and fund real change through donations to children's hospitals and global causes.
-  </p>
-
-  <p>
-    0% tax. No rug pulls. Just pure meme-driven momentum with transparency and purpose.
-  </p>
-
-  <div class="cta">
-    <a href="https://t.me/viktokenarmy" target="_blank">🚀 Join Our Telegram</a>
-  </div>
-
-  <div class="cta">
-    <a href="https://pancakeswap.finance/swap?outputCurrency=0x1603CEB4CB7F3F8f63b70F0DFe9B292769424e12" target="_blank">💰 Buy on PancakeSwap</a>
-  </div>
-
-  <div class="chart-container">
+  <section class="chart-container">
     <h2>Live Price Chart</h2>
     <iframe src="https://charts.bogged.finance/embeds/chart?token=0x1603CEB4CB7F3F8f63b70F0DFe9B292769424e12&chain=bsc"></iframe>
-  </div>
+  </section>
 
   <footer>
-    &copy; 2025 VIKTOKEN. Built by the people. For the kids. Satire with purpose.
+    &copy; 2025 VIKTOKEN – satire, community, charity. Built by degens with a heart.
   </footer>
 </body>
 </html>
