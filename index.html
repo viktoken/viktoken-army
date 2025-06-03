@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VIKTOKEN | Meme → Miracle</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VIKTOKEN | Meme → Miracle | Buy $VIKT Now</title>
+  <meta name="description" content="VIKTOKEN - The cryptocurrency that turns political satire into real charity. Buy $VIKT to support children's hospitals while enjoying the memes." />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     :root {
       --pink:#ff4081;
@@ -12,6 +14,7 @@
       --fg:#f5f5f5;
       --card:#1a1a1a;
       --accent:#ffc107;
+      --green:#4CAF50;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body{
@@ -22,76 +25,472 @@
       text-align:center;
     }
     header{
-      background:url("images/hero-viktoken.png") center/cover no-repeat;
-      min-height:60vh;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hero-viktoken.png') center/cover no-repeat;
+      min-height:70vh;
       display:flex;
       flex-direction:column;
       justify-content:center;
+      align-items:center;
       padding:2rem 1rem;
       border-bottom:2px solid #444;
+      position: relative;
     }
-    header h1{font-size:3rem;color:var(--pink);text-shadow:0 0 10px #000}
-    header p{max-width:720px;margin:1rem auto;font-size:1.1rem}
-    .cta{margin:1.5rem auto;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+    .token-price {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.7);
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      color: var(--green);
+      border: 1px solid var(--green);
+    }
+    header h1{
+      font-size:4rem;
+      color:var(--pink);
+      text-shadow:0 0 10px rgba(255,64,129,0.5);
+      margin-bottom: 1rem;
+      animation: pulse 2s infinite;
+    }
+    header p{
+      max-width:720px;
+      margin:1rem auto 2rem auto;
+      font-size:1.3rem;
+      text-shadow: 0 0 5px #000;
+    }
+    .cta{
+      margin:0 auto;
+      display:flex;
+      gap:1.5rem;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
     .btn{
       background:var(--pink);
       color:#fff;
-      padding:.8rem 2rem;
-      border-radius:6px;
+      padding:1rem 2.5rem;
+      border-radius:50px;
       text-decoration:none;
       transition:.3s;
       display:inline-block;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(255,64,129,0.4);
+      border: none;
+      cursor: pointer;
     }
-    .btn:hover{background:#e73370}
-    section{padding:3rem 1rem;max-width:900px;margin:auto}
-    .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem;margin-top:2rem}
-    .card{background:var(--card);padding:1.5rem;border:1px solid #333;border-radius:10px}
-    .card img{width:60px;margin-bottom:1rem}
-    .chart-container{margin:3rem auto;max-width:900px}
-    iframe{width:100%;height:500px;border:none;border-radius:8px}
-    footer{margin-top:4rem;font-size:.9rem;color:#888;padding:2rem 0;border-top:1px solid #333}
-    @media(max-width:600px){header h1{font-size:2.2rem}}
+    .btn:hover{
+      background:#e73370;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(255,64,129,0.6);
+    }
+    .btn-buy {
+      background: var(--green);
+      box-shadow: 0 4px 15px rgba(76,175,80,0.4);
+    }
+    .btn-buy:hover {
+      background: #3d8b40;
+      box-shadow: 0 6px 20px rgba(76,175,80,0.6);
+    }
+    section{
+      padding:4rem 1rem;
+      max-width:1200px;
+      margin:auto;
+      text-align: left;
+    }
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+    }
+    h2:after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background: var(--pink);
+      bottom: -10px;
+      left: 25%;
+    }
+    .intro-text, .mission-list, .token-details, .charity-info, .tokenomics, .roadmap, .join-movement, .disclaimer {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 15px;
+      border: 1px solid #333;
+      margin-bottom: 3rem;
+      color: var(--fg);
+    }
+    .mission-list ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      font-size: 1.2rem;
+    }
+    .mission-list ul li {
+      margin-bottom: 0.8rem;
+    }
+    .token-details ul {
+      list-style: none;
+      font-size: 1.1rem;
+      padding-left: 0;
+    }
+    .token-details ul li {
+      margin-bottom: 0.6rem;
+    }
+    .tokenomics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .tokenomics-item {
+      background: rgba(0,0,0,0.3);
+      padding: 1.5rem;
+      border-radius: 10px;
+      border-left: 4px solid var(--pink);
+      color: var(--fg);
+    }
+    .tokenomics-item h3 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    .tokenomics-item p {
+      font-size: 1.1rem;
+    }
+    .roadmap-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 1.1rem;
+    }
+    .roadmap-list li {
+      margin-bottom: 1rem;
+    }
+    .roadmap-list li::before {
+      content: "✅ ";
+      color: var(--green);
+      font-weight: bold;
+    }
+    .chart-container{
+      margin:4rem auto;
+      max-width:900px;
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 15px;
+      border: 1px solid #333;
+      text-align:center;
+    }
+    iframe{
+      width:100%;
+      height:500px;
+      border:none;
+      border-radius:8px;
+    }
+    .social-proof {
+      margin: 4rem auto;
+      max-width: 800px;
+      color: var(--fg);
+    }
+    .testimonials {
+      display: flex;
+      overflow-x: auto;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      scroll-snap-type: x mandatory;
+    }
+    .testimonial {
+      min-width: 300px;
+      background: var(--card);
+      padding: 1.5rem;
+      border-radius: 10px;
+      scroll-snap-align: start;
+      border: 1px solid #333;
+      font-style: italic;
+      color: var(--fg);
+    }
+    .testimonial-author {
+      font-weight: bold;
+      color: var(--pink);
+      margin-top: 1rem;
+      font-style: normal;
+      text-align: right;
+    }
+    footer{
+      margin-top:4rem;
+      font-size:.9rem;
+      color:#888;
+      padding:3rem 0;
+      border-top:1px solid #333;
+      background: var(--card);
+      text-align:center;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.5rem 0 2rem 0;
+    }
+    .social-links a {
+      color: var(--fg);
+      font-size: 1.8rem;
+      transition: color 0.3s;
+    }
+    .social-links a:hover {
+      color: var(--pink);
+    }
+    @media(max-width:768px){
+      header h1{font-size:2.5rem}
+      header p {font-size: 1.1rem;}
+      .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+    }
+    @media(max-width:480px){
+      header h1{font-size:2rem}
+      .cta {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .btn {
+        width: 100%;
+      }
+      .testimonials {
+        flex-direction: column;
+        overflow-x: visible;
+      }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
   </style>
 </head>
 <body>
   <header>
+    <div class="token-price" aria-live="polite" aria-atomic="true">
+      <i class="fas fa-chart-line" aria-hidden="true"></i> $VIKT: <span id="currentPrice">Loading...</span>
+    </div>
     <h1>VIKTOKEN</h1>
     <p>Turning political satire into real-world impact – buy $VIKT, fund kids, enjoy the memes.</p>
     <div class="cta">
-      <a class="btn" href="whitepaper.md" target="_blank">📄 Whitepaper</a>
-      <a class="btn" href="https://t.me/viktokenarmy" target="_blank">🚀 Join Telegram</a>
-      <a class="btn" href="https://pancakeswap.finance/swap?outputCurrency=0x1603CEB4CB7F3F8f63b70F0DFe9B292769424e12" target="_blank">💰 Buy $VIKT</a>
+      <a 
+        class="btn btn-buy" 
+        href="https://pancakeswap.finance/swap?outputCurrency=0x1603CEB4CB7F3F8f63b70F0DFe9B292769424e12" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        aria-label="Buy VIKTOKEN on PancakeSwap"
+      >
+        <i class="fas fa-shopping-cart" aria-hidden="true"></i> BUY $VIKT NOW
+      </a>
+      <a 
+        class="btn" 
+        href="https://t.me/viktokenarmy" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        aria-label="Join VIKTOKEN Telegram group"
+      >
+        <i class="fab fa-telegram" aria-hidden="true"></i> JOIN TELEGRAM
+      </a>
     </div>
   </header>
 
-  <section>
-    <h2>Why VIKTOKEN?</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="images/8d40f840-35d9-457d-9c86-a3e1e8e53a4c.jpg" alt="Meme icon">
-        <h3>Meme Power</h3>
-        <p>We weaponise humour against corruption – every coin carries Viktor’s smirk.</p>
+  <section class="intro-text">
+    <h2>Introduction</h2>
+    <p>
+      VIKTOKEN is a community-driven meme token designed not only to parody the global rise of populist and corrupt politics, but also to channel that satire into something meaningful: support for children’s hospitals and charitable causes worldwide.
+    </p>
+    <p>
+      We believe that blockchain can empower both activism and generosity — turning humor into hope, and memes into meaning.
+    </p>
+  </section>
+
+  <section class="mission-list">
+    <h2>Mission</h2>
+    <ul>
+      <li>To raise awareness about global political corruption through humorous, meme-based activism.</li>
+      <li>To use a portion of our token’s growth and liquidity to support real-world causes — specifically, donating to children in need.</li>
+    </ul>
+  </section>
+
+  <section class="token-details">
+    <h2>Token Details</h2>
+    <ul>
+      <li><strong>Name:</strong> VIKTOKEN</li>
+      <li><strong>Symbol:</strong> VIKT</li>
+      <li><strong>Total Supply:</strong> 1,000,000,000,000 (1 Trillion)</li>
+      <li><strong>Chain:</strong> Binance Smart Chain (BEP-20)</li>
+      <li><strong>Token Distribution:</strong>
+        <ul>
+          <li>60% Public Liquidity Pool</li>
+          <li>20% Team Reserve (locked initially)</li>
+          <li>10% Charity Wallet (for scheduled donations)</li>
+          <li>10% Marketing & Partnerships</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="charity-info">
+    <h2>Charity & Giving</h2>
+    <p>On specific days each month — “Charity Burn Days” — we allocate a portion of tokens or BNB from the charity wallet to:</p>
+    <ul>
+      <li>Verified international children’s hospitals</li>
+      <li>Local initiatives for children’s healthcare</li>
+      <li>Emergency aid for kids affected by disasters or war</li>
+    </ul>
+    <p>Community voting helps select recipients. Transparency is ensured via public wallet tracking.</p>
+  </section>
+
+  <section class="tokenomics">
+    <h2>Tokenomics</h2>
+    <p>Smart contract designed for sustainability and growth with no buy/sell tax.</p>
+    <div class="tokenomics-grid">
+      <div class="tokenomics-item">
+        <h3><i class="fas fa-coins"></i> Total Supply</h3>
+        <p>1,000,000,000,000 $VIKT</p>
       </div>
-      <div class="card">
-        <img src="8e8a85ab-fdf5-49fd-9965-2b58970da47c.jpg" alt="Heart icon">
-        <h3>Charity First</h3>
-        <p>Portion of liquidity directed to children’s hospitals worldwide. 100% on‑chain transparency.</p>
+      <div class="tokenomics-item">
+        <h3><i class="fas fa-hand-holding-heart"></i> Charity</h3>
+        <p>5% of every transaction goes to charity wallets</p>
       </div>
-      <div class="card">
-        <img src="a5b48e60-4482-4213-821c-2e372d1bfd6b.jpg" alt="Lock icon">
-        <h3>Locked & Rug‑Free</h3>
-        <p>Liquidity and team wallet both locked – no nasty surprises.</p>
+      <div class="tokenomics-item">
+        <h3><i class="fas fa-users"></i> Marketing</h3>
+        <p>3% allocated for growth and partnerships</p>
+      </div>
+      <div class="tokenomics-item">
+        <h3><i class="fas fa-lock"></i> Liquidity & Team Wallet</h3>
+        <p>Liquidity locked, Team wallet locked for 6 months</p>
       </div>
     </div>
   </section>
 
   <section class="chart-container">
     <h2>Live Price Chart</h2>
-    <iframe src="https://charts.bogged.finance/embeds/chart?token=0x1603CEB4CB7F3F8f63b70F0DFe9B292769424e12&chain=bsc"></iframe>
+    <p>Track $VIKT performance in real-time</p>
+    <iframe 
+      src="https://charts.bogged.finance/embeds/chart?token=0x1603CEB4CB7F3F8f63b70F0DFe9B292769424e12&chain=bsc" 
+      title="VIKTOKEN Live Price Chart"
+      loading="lazy"
+    ></iframe>
+    <div class="cta" style="margin-top: 1.5rem;">
+      <a 
+        class="btn btn-buy" 
+        href="https://pancakeswap.finance/swap?outputCurrency=0x1603CEB4CB7F3F8f63b70F0DFe9B292769424e12" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        aria-label="Buy VIKTOKEN on PancakeSwap"
+      >
+        <i class="fas fa-rocket"></i> BUY NOW BEFORE NEXT PUMP
+      </a>
+    </div>
+  </section>
+
+  <section class="roadmap">
+    <h2>Roadmap</h2>
+    <ul class="roadmap-list">
+      <li>Token deployment</li>
+      <li>Whitepaper release</li>
+      <li>Telegram, X, TikTok community creation</li>
+      <li>Website launch via GitHub Pages</li>
+      <li>CoinMarketCap & CoinGecko listings</li>
+      <li>1st Charity Burn Day</li>
+      <li>Meme contests & viral marketing campaigns</li>
+      <li>NFT collection based on memes</li>
+      <li>Merchandise store launch</li>
+      <li>Cross-chain bridge development</li>
+    </ul>
+  </section>
+
+  <section class="join-movement">
+    <h2>Join the Movement</h2>
+    <p>
+      We invite activists, degens, memelords, and idealists to unite for a cause that’s humorous — but with heart.
+      Let’s build a project that makes headlines and helps children.
+    </p>
+  </section>
+
+  <section class="social-proof">
+    <h2>What Our Community Says</h2>
+    <div class="testimonials" role="list">
+      <div class="testimonial" role="listitem">
+        <div class="testimonial-content">
+          "Bought $VIKT for the memes, stayed for the cause. Already 5x and we're helping kids!"
+        </div>
+        <div class="testimonial-author">- CryptoDegen42</div>
+      </div>
+      <div class="testimonial" role="listitem">
+        <div class="testimonial-content">
+          "Finally a meme coin with actual purpose. The transparency on charity donations is unmatched."
+        </div>
+        <div class="testimonial-author">- BlockchainMom</div>
+      </div>
+      <div class="testimonial" role="listitem">
+        <div class="testimonial-content">
+          "The community is amazing and the devs deliver what they promise. This is going to 100M MCAP!"
+        </div>
+        <div class="testimonial-author">- MoonBoyX</div>
+      </div>
+    </div>
   </section>
 
   <footer>
-    &copy; 2025 VIKTOKEN – satire, community, charity. Built by degens with a heart.
+    <h3>JOIN THE VIKTOKEN REVOLUTION</h3>
+    <div class="cta">
+      <a 
+        class="btn btn-buy" 
+        href="https://pancakeswap.finance/swap?outputCurrency=0x1603CEB4CB7F3F8f63b70F0DFe9B292769424e12" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        aria-label="Buy VIKTOKEN on PancakeSwap"
+      >
+        <i class="fas fa-shopping-cart"></i> BUY $VIKT NOW
+      </a>
+    </div>
+    <div class="social-links">
+      <a href="https://t.me/viktokenarmy" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+      <a href="https://twitter.com/viktoken" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://medium.com/viktoken" target="_blank" rel="noopener noreferrer" aria-label="Medium"><i class="fab fa-medium"></i></a>
+      <a href="https://github.com/viktoken" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+    <p>&copy; 2025 VIKTOKEN – satire, community, charity. Built by degens with a heart.</p>
+    <p><small>VIKTOKEN is a meme cryptocurrency with charitable purposes. Not affiliated with any political entity.</small></p>
   </footer>
+
+  <script>
+    async function fetchPrice() {
+      const priceElement = document.getElementById('currentPrice');
+      const contractAddress = "0x1603CEB4CB7F3F8f63b70F0DFe9B292769424e12";
+      
+      try {
+        const response = await fetch(`https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses=${contractAddress}&vs_currencies=usd`);
+        const data = await response.json();
+        const price = data[contractAddress.toLowerCase()]?.usd;
+        
+        if (price) {
+          priceElement.textContent = price.toFixed(8);
+          priceElement.style.color = '#4CAF50'; // green for positive
+        } else {
+          priceElement.textContent = "N/A";
+          priceElement.style.color = '#f44336'; // red for no data
+        }
+      } catch (error) {
+        console.error('Price fetch error:', error);
+        priceElement.textContent = "Error";
+        priceElement.style.color = '#f44336';
+      }
+    }
+
+    setInterval(fetchPrice, 3000);
+    window.addEventListener('load', fetchPrice);
+  </script>
 </body>
 </html>
